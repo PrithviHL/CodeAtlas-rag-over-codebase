@@ -8,3 +8,6 @@ try {
 } catch (error) {
   if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
 }
+// A public hosted provider is usable only after its server-side secret is set.
+// Leave evidence mode truthful while the owner finishes provider setup.
+if (process.env.PUBLIC_DEMO === "true" && !process.env.LLM_API_KEY) process.env.LLM_MODEL = "";
