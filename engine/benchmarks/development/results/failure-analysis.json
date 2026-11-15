@@ -1,0 +1,838 @@
+[
+  {
+    "id": "atlas-01",
+    "question": "Where does the server validate the signature and intended recipient of a Google identity token?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "code/ts/src/google_auth.ts",
+        "start_line": 46,
+        "end_line": 51
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "README.md",
+        "start_line": 119,
+        "end_line": 130
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/google-sign-in.md",
+        "start_line": 24,
+        "end_line": 47
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/google-sign-in.md",
+        "start_line": 1,
+        "end_line": 22
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "code/ts/src/google_auth.ts",
+        "start_line": 16,
+        "end_line": 86
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "prototypes/streamlit/authentication.py",
+        "start_line": 1,
+        "end_line": 4
+      }
+    ]
+  },
+  {
+    "id": "atlas-02",
+    "question": "How are login callbacks bound to the browser that initiated the authorization request?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "code/ts/src/google_auth.ts",
+        "start_line": 134,
+        "end_line": 139
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "code/ts/tests/google_auth.test.ts",
+        "start_line": 1,
+        "end_line": 65
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "README.md",
+        "start_line": 119,
+        "end_line": 130
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/README.md",
+        "start_line": 25,
+        "end_line": 48
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/google-sign-in.md",
+        "start_line": 1,
+        "end_line": 22
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "code/ts/tests/google_auth.test.ts",
+        "start_line": 66,
+        "end_line": 112
+      }
+    ]
+  },
+  {
+    "id": "atlas-03",
+    "question": "Where is a user logged out and their server session invalidated?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "code/ts/src/google_auth.ts",
+        "start_line": 167,
+        "end_line": 172
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "README.md",
+        "start_line": 119,
+        "end_line": 130
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/google-sign-in.md",
+        "start_line": 24,
+        "end_line": 47
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "prototypes/streamlit/authentication.py",
+        "start_line": 24,
+        "end_line": 32
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "public/app.js",
+        "start_line": 56,
+        "end_line": 71
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/README.md",
+        "start_line": 68,
+        "end_line": 77
+      }
+    ]
+  },
+  {
+    "id": "atlas-04",
+    "question": "Which repository URLs are accepted and how are credential-bearing URLs rejected?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "code/ts/src/workspace.ts",
+        "start_line": 15,
+        "end_line": 20
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "SECURITY.md",
+        "start_line": 1,
+        "end_line": 16
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "code/ts/tests/workspace.test.ts",
+        "start_line": 1,
+        "end_line": 34
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "tests/transit.test.js",
+        "start_line": 1,
+        "end_line": 69
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/README.md",
+        "start_line": 68,
+        "end_line": 77
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/operations.md",
+        "start_line": 35,
+        "end_line": 52
+      }
+    ]
+  },
+  {
+    "id": "atlas-05",
+    "question": "How does incremental indexing avoid generating the same embedding again?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/codeatlas_engine/indexing.py",
+        "start_line": 158,
+        "end_line": 163
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "quiz.json",
+        "start_line": 63,
+        "end_line": 90
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "outputs/skill-codebase-rag.md",
+        "start_line": 36,
+        "end_line": 46
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/tests/test_engine.py",
+        "start_line": 102,
+        "end_line": 136
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/README.md",
+        "start_line": 1,
+        "end_line": 23
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "quiz.json",
+        "start_line": 1,
+        "end_line": 62
+      }
+    ]
+  },
+  {
+    "id": "atlas-06",
+    "question": "Where are vector nearest-neighbor results restricted to the selected repositories?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/codeatlas_engine/providers.py",
+        "start_line": 119,
+        "end_line": 124
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "code/ts/public/app.js",
+        "start_line": 2,
+        "end_line": 2
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/codeatlas_engine/search.py",
+        "start_line": 6,
+        "end_line": 48
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "public/app.js",
+        "start_line": 360,
+        "end_line": 431
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "README.md",
+        "start_line": 72,
+        "end_line": 101
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/README.md",
+        "start_line": 68,
+        "end_line": 77
+      }
+    ]
+  },
+  {
+    "id": "atlas-07",
+    "question": "How are path and symbol importance combined with document length when scoring keyword matches?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/codeatlas_engine/store.py",
+        "start_line": 196,
+        "end_line": 201
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "code/ts/src/workspace.ts",
+        "start_line": 106,
+        "end_line": 118
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/codeatlas_engine/store.py",
+        "start_line": 181,
+        "end_line": 233
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "tests/planner.test.js",
+        "start_line": 107,
+        "end_line": 157
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/README.md",
+        "start_line": 50,
+        "end_line": 66
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/codeatlas_engine/store.py",
+        "start_line": 16,
+        "end_line": 63
+      }
+    ]
+  },
+  {
+    "id": "atlas-08",
+    "question": "What makes the agent try a second search when its first retrieval finds no supporting source?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/codeatlas_engine/agent.py",
+        "start_line": 29,
+        "end_line": 34
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/codeatlas_engine/agent.py",
+        "start_line": 80,
+        "end_line": 126
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "docs/en.md",
+        "start_line": 21,
+        "end_line": 62
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/README.md",
+        "start_line": 50,
+        "end_line": 66
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "docs/en.md",
+        "start_line": 1,
+        "end_line": 19
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "docs/en.md",
+        "start_line": 63,
+        "end_line": 90
+      }
+    ]
+  },
+  {
+    "id": "atlas-09",
+    "question": "Where is the authenticity of a GitHub webhook body checked using a shared signing secret?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/codeatlas_engine/service.py",
+        "start_line": 23,
+        "end_line": 28
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/README.md",
+        "start_line": 68,
+        "end_line": 77
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/codeatlas_engine/service.py",
+        "start_line": 24,
+        "end_line": 28
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "README.md",
+        "start_line": 119,
+        "end_line": 130
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/tests/test_engine.py",
+        "start_line": 213,
+        "end_line": 265
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "code/ts/tests/engine_proxy.test.ts",
+        "start_line": 1,
+        "end_line": 32
+      }
+    ]
+  },
+  {
+    "id": "atlas-10",
+    "question": "How are repeated deliveries prevented from creating duplicate indexing jobs?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/codeatlas_engine/store.py",
+        "start_line": 210,
+        "end_line": 215
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/README.md",
+        "start_line": 68,
+        "end_line": 77
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/tests/test_engine.py",
+        "start_line": 213,
+        "end_line": 265
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/codeatlas_engine/latency.py",
+        "start_line": 14,
+        "end_line": 66
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/codeatlas_engine/store.py",
+        "start_line": 235,
+        "end_line": 258
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "docs/en.md",
+        "start_line": 132,
+        "end_line": 146
+      }
+    ]
+  },
+  {
+    "id": "atlas-11",
+    "question": "How are retrieval comparisons prevented from using the wrong source revision?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/codeatlas_engine/evaluation.py",
+        "start_line": 28,
+        "end_line": 33
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/README.md",
+        "start_line": 68,
+        "end_line": 77
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/README.md",
+        "start_line": 50,
+        "end_line": 66
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "README.md",
+        "start_line": 36,
+        "end_line": 70
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "docs/en.md",
+        "start_line": 63,
+        "end_line": 90
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "docs/en.md",
+        "start_line": 21,
+        "end_line": 62
+      }
+    ]
+  },
+  {
+    "id": "atlas-12",
+    "question": "Where are unsupported citation numbers rejected before showing a generated answer?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "engine/codeatlas_engine/agent.py",
+        "start_line": 106,
+        "end_line": 111
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "README.md",
+        "start_line": 36,
+        "end_line": 70
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "outputs/skill-codebase-rag.md",
+        "start_line": 36,
+        "end_line": 46
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "code/ts/src/workspace.ts",
+        "start_line": 119,
+        "end_line": 134
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "README.md",
+        "start_line": 103,
+        "end_line": 117
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "docs/en.md",
+        "start_line": 21,
+        "end_line": 62
+      }
+    ]
+  },
+  {
+    "id": "bus-01",
+    "question": "How does a typed stop choice turn into the coordinates used for trip planning?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "prototypes/streamlit/app.py",
+        "start_line": 119,
+        "end_line": 124
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "prototypes/streamlit/app.py",
+        "start_line": 339,
+        "end_line": 384
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "README.md",
+        "start_line": 1,
+        "end_line": 36
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/architecture.md",
+        "start_line": 33,
+        "end_line": 54
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "prototypes/streamlit/app.py",
+        "start_line": 92,
+        "end_line": 122
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/streamlit-containers.md",
+        "start_line": 1,
+        "end_line": 31
+      }
+    ]
+  },
+  {
+    "id": "bus-03",
+    "question": "How does the planner decide whether a real-time prediction refers to the same scheduled bus trip?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "src/server/journeys.js",
+        "start_line": 54,
+        "end_line": 59
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "legacy/prototype/documentation/README.md",
+        "start_line": 1,
+        "end_line": 16
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "README.md",
+        "start_line": 1,
+        "end_line": 36
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/timetable-routing.md",
+        "start_line": 1,
+        "end_line": 27
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "src/server/planner.js",
+        "start_line": 280,
+        "end_line": 301
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/architecture.md",
+        "start_line": 33,
+        "end_line": 54
+      }
+    ]
+  },
+  {
+    "id": "bus-04",
+    "question": "Where are connections discarded if an updated bus arrival makes the next departure impossible to catch?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "src/server/journeys.js",
+        "start_line": 93,
+        "end_line": 98
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "README.md",
+        "start_line": 1,
+        "end_line": 36
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/architecture.md",
+        "start_line": 33,
+        "end_line": 54
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/timetable-routing.md",
+        "start_line": 1,
+        "end_line": 27
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "CHANGELOG.md",
+        "start_line": 1,
+        "end_line": 29
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "legacy/prototype/documentation/README.md",
+        "start_line": 1,
+        "end_line": 16
+      }
+    ]
+  },
+  {
+    "id": "bus-05",
+    "question": "How does the timetable prevent a passenger from making a prohibited transfer?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "src/server/schedule.js",
+        "start_line": 171,
+        "end_line": 176
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "tests/schedule.test.js",
+        "start_line": 101,
+        "end_line": 167
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/timetable-routing.md",
+        "start_line": 1,
+        "end_line": 27
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "tests/schedule.test.js",
+        "start_line": 168,
+        "end_line": 246
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/timetable-routing.md",
+        "start_line": 29,
+        "end_line": 55
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/architecture.md",
+        "start_line": 33,
+        "end_line": 54
+      }
+    ]
+  },
+  {
+    "id": "bus-06",
+    "question": "Where does the API limit how far into the future a requested journey can be?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "src/server/journeys.js",
+        "start_line": 9,
+        "end_line": 14
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/api.md",
+        "start_line": 1,
+        "end_line": 54
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/streamlit-containers.md",
+        "start_line": 1,
+        "end_line": 31
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "README.md",
+        "start_line": 75,
+        "end_line": 104
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/api.md",
+        "start_line": 56,
+        "end_line": 79
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "README.md",
+        "start_line": 37,
+        "end_line": 73
+      }
+    ]
+  },
+  {
+    "id": "bus-07",
+    "question": "How is the transit provider secret removed from the public interface process environment?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "deploy/public_entrypoint.py",
+        "start_line": 48,
+        "end_line": 53
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/public-deployment.md",
+        "start_line": 19,
+        "end_line": 39
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/public-deployment.md",
+        "start_line": 1,
+        "end_line": 17
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/google-sign-in.md",
+        "start_line": 24,
+        "end_line": 47
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "prototypes/streamlit/tests/test_public_entrypoint.py",
+        "start_line": 16,
+        "end_line": 45
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "CHANGELOG.md",
+        "start_line": 1,
+        "end_line": 29
+      }
+    ]
+  },
+  {
+    "id": "bus-08",
+    "question": "Where is access to the planner stopped until Google sign-in is complete?",
+    "relevant": [
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "prototypes/streamlit/authentication.py",
+        "start_line": 49,
+        "end_line": 51
+      }
+    ],
+    "top_sources": [
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/google-sign-in.md",
+        "start_line": 24,
+        "end_line": 47
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "docs/google-sign-in.md",
+        "start_line": 1,
+        "end_line": 22
+      },
+      {
+        "repo": "PrithviHL/rag-over-codebase",
+        "path": "README.md",
+        "start_line": 119,
+        "end_line": 130
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "prototypes/streamlit/authentication.py",
+        "start_line": 35,
+        "end_line": 51
+      },
+      {
+        "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+        "path": "prototypes/streamlit/tests/test_authentication.py",
+        "start_line": 14,
+        "end_line": 65
+      }
+    ]
+  }
+]

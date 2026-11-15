@@ -1,0 +1,40 @@
+[
+  {
+    "repo": "PrithviHL/rag-over-codebase",
+    "commit": "a3280a67966908de973ceeeb69bd013e707d8376",
+    "changed_files": 38,
+    "chunks_upserted": 142,
+    "embeddings_created": 142,
+    "embeddings_reused": 0,
+    "chunks_deleted": 0,
+    "skipped_files": 0,
+    "parse_seconds": 3.3392290407791734,
+    "embed_and_upsert_seconds": 4.15788866719231,
+    "publish_seconds": 0.02548554167151451,
+    "index_seconds": 7.522603249642998,
+    "measured_at": 1794775661.2201998,
+    "fetch_and_index_seconds": 8.06725866580382,
+    "qdrant_client": "1.15.1",
+    "qdrant_server": "1.15.5",
+    "cache_conditions": "Fresh metadata and embedding cache; model files cached; Qdrant collection already existed."
+  },
+  {
+    "repo": "PrithviHL/LeaveNow-Real-Time-Bus-Location-Tracking-and-Smart-Departure-Prediction",
+    "commit": "ea7ba7521891b962b9dd16c31d81bbae9b83982e",
+    "changed_files": 65,
+    "chunks_upserted": 261,
+    "embeddings_created": 261,
+    "embeddings_reused": 0,
+    "chunks_deleted": 0,
+    "skipped_files": 3,
+    "parse_seconds": 2.537423708010465,
+    "embed_and_upsert_seconds": 7.177130124997348,
+    "publish_seconds": 0.05359887517988682,
+    "index_seconds": 9.7681527081877,
+    "measured_at": 1794775671.838361,
+    "fetch_and_index_seconds": 10.617997167166322,
+    "qdrant_client": "1.15.1",
+    "qdrant_server": "1.15.5",
+    "cache_conditions": "Fresh metadata and embedding cache; model files cached; Qdrant collection already existed."
+  }
+]

@@ -109,3 +109,18 @@ Model downloads and first inference can dominate startup. CPU embedding throughp
 The retained [`benchmarks/smoke-report.json`](benchmarks/smoke-report.json) records a real BGE-small + MiniLM cross-encoder functional smoke on three synthetic source files. Reproduce from the repository root with `HF_HOME="$PWD/.runtime/huggingface" .runtime/engine-venv/bin/python engine/benchmarks/smoke.py`. It performs no live Groq/Claude call and supports no fleet-scale performance claim.
 
 Validation in this development session: Python engine tests and Node tests passed; real embedding/cross-encoder smoke and a public Git import followed by a zero-reembedding unchanged update passed. Compose syntax validated. The engine Docker build could not finish because Docker Hub timed out fetching the Python base image; the container build and a live Groq graph round-trip still need environment validation. No 2M-LOC benchmark or paid deployment was run.
+
+## Local native runner and measured pilot
+
+A local instance has been exercised with the actual model weights and a persistent Qdrant server. See [the development pilot report](benchmarks/development/README.md) for all measured scores and limits. Its 12,027-line, 20-question development corpus is much smaller than the proposed fleet and the reranker needs improvement.
+
+On this machine, start the already-created database container, then run the native API, worker, and web interface:
+
+```sh
+docker start codeatlas-local-qdrant
+.runtime/engine-venv/bin/python engine/local.py
+```
+
+Open **http://localhost:3100/fleet**. The API listens on 127.0.0.1:8100, and Qdrant on 127.0.0.1:6434. Local services are loopback-only; this local development UI does not require Google login. The existing hosted Google-protected app is unaffected. The runner generates private local API/webhook secrets under the ignored `.runtime/local-engine/env.json` (mode 0600) and reads the repository manifest from `.runtime/local-engine/catalog.json`.
+
+For generated answers, add `GROQ_API_KEY=...` to the ignored `engine/.env`, then restart the runner. Retrieval benchmarking needs no chat-provider key. Without one, the agent returns retrieved sources and an explicit answer-generation-unavailable notice. Do not paste keys in chat. Stop the runner with Ctrl+C; stop Qdrant with `docker stop codeatlas-local-qdrant` when finished. The database persists locally across stops.
