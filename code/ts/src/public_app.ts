@@ -4,6 +4,7 @@ import { randomBytes } from "node:crypto";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { Workspace } from "./workspace.ts";
+import { engineProxy } from "./engine_proxy.ts";
 import { googleAuth } from "./google_auth.ts";
 import { webApp } from "./web.ts";
 
@@ -29,7 +30,9 @@ export function publicApp(
         mode: process.env.LLM_MODEL ? "model" : "evidence",
         model: process.env.LLM_MODEL || null,
         publicDemo: true,
+        fleetEngine: Boolean(process.env.ENGINE_URL),
       });
+    if (c.req.path === "/api/fleet/webhooks/github") return engineProxy(c);
     const now = Date.now();
     for (const [id, session] of sessions) {
       if (!session.active && now - session.used > 3600_000) {

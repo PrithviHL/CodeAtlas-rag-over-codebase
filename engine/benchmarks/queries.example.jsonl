@@ -1,0 +1,1 @@
+{"id":"example-replace-before-evaluation","question":"Where is the Google identity token verified?","repos":["PrithviHL/rag-over-codebase"],"commits":{"PrithviHL/rag-over-codebase":"REPLACE_WITH_INDEXED_40_CHARACTER_COMMIT"},"relevant":[{"repo":"PrithviHL/rag-over-codebase","path":"code/ts/src/google_auth.ts","start_line":40,"end_line":65}]}

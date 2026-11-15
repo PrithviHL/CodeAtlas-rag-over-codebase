@@ -84,6 +84,7 @@ export function googleAuth(
         "/style.css",
         "/auth/login",
         "/auth/google/callback",
+        "/api/fleet/webhooks/github",
       ].includes(c.req.path)
     )
       return next();

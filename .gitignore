@@ -8,3 +8,9 @@ data/
 
 .env.*
 !.env.example
+engine/config/repos.json
+engine/benchmarks/results/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/

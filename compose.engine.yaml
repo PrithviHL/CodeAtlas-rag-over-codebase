@@ -1,0 +1,43 @@
+# Separate resource-intensive fleet profile. No paid infrastructure is provisioned.
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.15.5
+    volumes: ["vectors:/qdrant/storage"]
+    restart: unless-stopped
+  engine:
+    build:
+      context: .
+      dockerfile: engine/Dockerfile
+    env_file: [engine/.env]
+    environment:
+      QDRANT_URL: http://qdrant:6333
+      REPOS_MANIFEST: /config/repos.json
+    volumes: ["engine-data:/data", "./engine/config/repos.json:/config/repos.json:ro"]
+    ports: ["127.0.0.1:8000:8000"]
+    depends_on: [qdrant]
+    restart: unless-stopped
+  worker:
+    build:
+      context: .
+      dockerfile: engine/Dockerfile
+    command: ["python", "-m", "codeatlas_engine.worker"]
+    env_file: [engine/.env]
+    environment:
+      QDRANT_URL: http://qdrant:6333
+      REPOS_MANIFEST: /config/repos.json
+    volumes: ["engine-data:/data", "./engine/config/repos.json:/config/repos.json:ro"]
+    depends_on: [qdrant]
+    restart: unless-stopped
+  web:
+    build: .
+    ports: ["127.0.0.1:3000:3000"]
+    environment:
+      ENGINE_URL: http://engine:8000
+      ENGINE_API_KEY: ${ENGINE_API_KEY:?Set ENGINE_API_KEY to match engine/.env}
+      LLM_MODEL: ""
+    volumes: ["web-data:/app/data"]
+    depends_on: [engine]
+volumes:
+  vectors:
+  engine-data:
+  web-data:

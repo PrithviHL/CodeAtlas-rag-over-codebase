@@ -1,0 +1,26 @@
+{
+  "repo": "smoke/example",
+  "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "changed_files": 3,
+  "chunks_upserted": 3,
+  "embeddings_created": 3,
+  "embeddings_reused": 0,
+  "chunks_deleted": 0,
+  "skipped_files": 0,
+  "parse_seconds": 1.645290208980441,
+  "embed_and_upsert_seconds": 0.08094983315095305,
+  "publish_seconds": 0.001114542130380869,
+  "index_seconds": 1.727354584261775,
+  "measured_at": 1794774448.141571,
+  "test_kind": "real-model functional smoke; not a representative benchmark",
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "rerank_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "top_source": "retry.ts",
+  "sources": 3,
+  "startup_and_run_seconds": 35.835590332746506,
+  "limitations": [
+    "One synthetic repository, three files; not the 2M-LOC fleet.",
+    "No live Groq or Claude call was made.",
+    "Model startup is separate from indexing; no 38-second claim follows from this smoke test."
+  ]
+}

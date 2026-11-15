@@ -67,7 +67,7 @@ $('#delete').onclick = async () => {
   try { await api(`/api/repos/${selected}`, { method: 'DELETE', body: '{}' }); selected = null; await refresh(); if (repositories.length) await select(repositories[0].id); else { $('#welcome').hidden = false; $('#workspace').hidden = true; $('#current').textContent = 'Overview'; } notice('Repository removed.'); }
   catch (error) { notice(error.message); }
 };
-(async () => { try { const health = await api('/api/health'); $('#mode').textContent = health.mode === 'model' ? `● ${health.model}` : '● Local evidence mode'; await refresh(); if (repositories.length) await select(repositories[0].id); } catch (error) { notice(error.message); } })();
+(async () => { try { const health = await api('/api/health'); $('#fleet-link').hidden = !health.fleetEngine; $('#mode').textContent = health.mode === 'model' ? `● ${health.model}` : '● Local evidence mode'; await refresh(); if (repositories.length) await select(repositories[0].id); } catch (error) { notice(error.message); } })();
 
 fetch('/api/account').then(async response => {
   if (!response.ok) return;

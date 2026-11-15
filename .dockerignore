@@ -7,3 +7,9 @@
 !code/ts/src/**
 !code/ts/public/
 !code/ts/public/**
+!engine/
+!engine/pyproject.toml
+!engine/codeatlas_engine/
+!engine/codeatlas_engine/*.py
+!engine/Dockerfile
+!engine/requirements.lock
