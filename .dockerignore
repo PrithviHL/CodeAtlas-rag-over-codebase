@@ -1,0 +1,9 @@
+**
+!Dockerfile
+!code/
+!code/ts/
+!code/ts/package.json
+!code/ts/src/
+!code/ts/src/**
+!code/ts/public/
+!code/ts/public/**

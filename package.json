@@ -1,0 +1,11 @@
+{
+  "name": "codeatlas",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix code/ts start",
+    "dev": "npm --prefix code/ts run dev",
+    "test": "npm --prefix code/ts test",
+    "typecheck": "npm --prefix code/ts run typecheck",
+    "setup": "npm --prefix code/ts install"
+  }
+}
