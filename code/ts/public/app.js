@@ -2,6 +2,7 @@ const $ = s => document.querySelector(s);
 let repositories = [], selected = null, busy = false;
 async function api(url, options = {}) {
   const response = await fetch(url, { ...options, headers: { 'Content-Type': 'application/json' } });
+  if (response.status === 401) { window.location.replace("/"); throw new Error("Please sign in again."); }
   const data = await response.json();
   if (!response.ok) throw new Error(data.error || 'Request failed');
   return data;
@@ -67,3 +68,11 @@ $('#delete').onclick = async () => {
   catch (error) { notice(error.message); }
 };
 (async () => { try { const health = await api('/api/health'); $('#mode').textContent = health.mode === 'model' ? `● ${health.model}` : '● Local evidence mode'; await refresh(); if (repositories.length) await select(repositories[0].id); } catch (error) { notice(error.message); } })();
+
+fetch('/api/account').then(async response => {
+  if (!response.ok) return;
+  const account = await response.json();
+  $('#account-name').textContent = account.name;
+  $('#account-email').textContent = account.email;
+  $('#account').hidden = false;
+}).catch(() => {});

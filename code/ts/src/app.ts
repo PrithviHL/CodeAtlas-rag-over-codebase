@@ -20,7 +20,11 @@ const server = createServer((req, res) => {
       const headers = new Headers();
       for (const [key, value] of Object.entries(req.headers)) if (value) headers.set(key, Array.isArray(value) ? value.join(", ") : value);
       const response = await app.fetch(new Request(`http://${req.headers.host || `localhost:${port}`}${req.url}`, { method: req.method, headers, ...(!["GET", "HEAD"].includes(req.method || "GET") ? { body: Buffer.concat(parts) } : {}) }));
-      res.writeHead(response.status, Object.fromEntries(response.headers));
+      const responseHeaders = Object.fromEntries(response.headers);
+      delete responseHeaders["set-cookie"];
+      const cookies = response.headers.getSetCookie();
+      if (cookies.length) res.setHeader("Set-Cookie", cookies);
+      res.writeHead(response.status, responseHeaders);
       if (response.body) Readable.fromWeb(response.body as never).pipe(res); else res.end();
     } catch { res.writeHead(500); res.end(JSON.stringify({ error: "Internal server error" })); }
   })(); });

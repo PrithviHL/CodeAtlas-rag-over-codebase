@@ -98,17 +98,29 @@ Browser → Hono API → Workspace → git clone (temporary checkout)
 
 ## Scope and limits
 
-The default local application is single-user and binds to loopback. `PUBLIC_DEMO=true` enables separate anonymous browser workspaces with no login. Public mode allows the exact Render hostname, up to eight concurrent browsers, one repository per browser, one import at a time, and 100 files / 1 MB indexed per repository. HttpOnly/Secure/SameSite cookies identify browsers. Public GitHub repositories only; Git subprocesses do not receive hosting secrets. Workspaces expire after an idle hour or service restart. Avoid confidential questions in this public demo. Source imports are snapshots: remove and reconnect a repository to refresh it. Data is plaintext JSON under `code/ts/data` when launched through npm from the root, excluded from Git. Back up that directory if needed. Run only one app process against a data directory.
+The default local application is single-user and binds to loopback. `PUBLIC_DEMO=true` enables separate browser workspaces with Google sign-in required by default. Public mode allows the exact Render hostname, up to eight concurrent browsers, one repository per browser, one import at a time, and 100 files / 1 MB indexed per repository. HttpOnly/Secure/SameSite cookies identify browsers. Public GitHub repositories only; Git subprocesses do not receive hosting secrets. Workspaces expire after an idle hour or service restart. Avoid confidential questions in this public demo. Source imports are snapshots: remove and reconnect a repository to refresh it. Data is plaintext JSON under `code/ts/data` when launched through npm from the root, excluded from Git. Back up that directory if needed. Run only one app process against a data directory.
 
 An import indexes up to 1,500 text files / 15 MB total, 200 KB per file, and skips hidden files, symlinks, binaries, common build/vendor directories, and unsupported extensions. Supported extensions are listed in workspace.ts. Skipped-file counts are visible in the UI. Git clones have a two-minute timeout; this does not cap transfer size, so large repositories can still require significant disk space. Dependencies, submodules, and Git LFS content are not installed. Hash vectors are a lightweight lexical approximation, not semantic model embeddings. Large-codebase semantic retrieval and production hosting are future extensions.
 
 
 ## Render public demo
 
-Deploy the root Dockerfile on a free Render web service with `PUBLIC_DEMO=true`, `HOST=0.0.0.0`, `DATA_DIR=/app/data`, and `LLM_MODEL=` (empty). Render supplies `PORT` and `RENDER_EXTERNAL_HOSTNAME`. The health endpoint is `/api/health`. No login or Google OAuth configuration is used. Indexes and questions are stored in isolated temporary browser workspaces and disappear when the service restarts; free services also sleep after inactivity.
+Deploy the root Dockerfile on a free Render web service with `PUBLIC_DEMO=true`, `HOST=0.0.0.0`, `DATA_DIR=/app/data`, and `LLM_MODEL=` (empty). Render supplies `PORT` and `RENDER_EXTERNAL_HOSTNAME`. The health endpoint is `/api/health`. Google sign-in is required; see the setup below. Indexes and questions are stored in isolated temporary browser workspaces and disappear when the service restarts; free services also sleep after inactivity.
 
 The local 1.5B model is not included in the image and cannot run within the free service's memory allowance. The initial public deployment uses explicitly labelled evidence search. To enable generated answers later, configure a reachable OpenAI-compatible endpoint with `LLM_MODEL`, `LLM_BASE_URL`, and a server-only `LLM_API_KEY` in Render's environment settings. Do not commit provider keys. Hosted model calls send retrieved source excerpts and questions to that provider.
 
 ### Free hosted model: Groq
 
 Create a free account and API key at https://console.groq.com/keys. The Render deployment is prepared with `LLM_BASE_URL=https://api.groq.com/openai/v1` and `LLM_MODEL=openai/gpt-oss-20b`. Add the key as the secret **LLM_API_KEY** on the service's Environment page, then save and deploy. Never send the key through chat or commit it. Until a key is set, the public app accurately shows evidence mode. Free-plan quotas apply to all visitors combined; see https://console.groq.com/docs/rate-limits. No paid plan is required for this demo. Public-repository excerpts and questions are sent to Groq when generation is enabled.
+
+
+## Google sign-in for the hosted app
+
+Hosted CodeAtlas requires Google sign-in before serving the app or repository APIs. The login page and health endpoint remain public. Set these **on the CodeAtlas service** in Render's Environment page:
+
+- `GOOGLE_CLIENT_ID`: Google Web application OAuth client ID.
+- `GOOGLE_CLIENT_SECRET`: its client secret.
+
+In Google Auth Platform, register origin `https://codeatlas-rag.onrender.com` and authorized redirect URI `https://codeatlas-rag.onrender.com/auth/google/callback`. You may add these to an existing Google Web application OAuth client or create a separate CodeAtlas client. Keep existing LeaveNow callbacks if reusing its client. Do not put secrets in Git or chat. Test users must be listed while Google's consent configuration is in Testing.
+
+Save and deploy after adding the credentials. Until then the hosted app shows a setup message and blocks repository APIs. Google returns a verified name/email to the top-right account menu. Sign out invalidates the session and clears the browser workspace cookie. State, nonce, and PKCE bind the callback to the initiating browser; the official Google library validates the identity token's signature, audience, issuer, and expiration. Google access/refresh tokens are not persisted. Identity sessions last up to 24 hours and are reset on service restart. Repository workspaces are temporary per-browser, not durable Google-account storage. Local single-user mode remains unchanged; `GOOGLE_AUTH_REQUIRED=false` is an explicit hosted opt-out.
