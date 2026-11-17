@@ -6,6 +6,7 @@ import { randomUUID } from "node:crypto";
 import { BM25Index, DenseIndex } from "./index_store.ts";
 import { rrf } from "./retrieval.ts";
 import type { Chunk } from "./types.ts";
+import { chunkSource } from "./chunking.ts";
 const exec = promisify(execFile);
 const allowed = new Set([".ts", ".tsx", ".js", ".jsx", ".py", ".md", ".json", ".go", ".rs", ".java", ".rb", ".css", ".html", ".yaml", ".yml", ".toml", ".sh", ".sql", ".c", ".cpp", ".h", ".vue", ".svelte"]);
 const ignored = new Set([".git", "node_modules", "dist", "build", "vendor", ".next", "__pycache__", ".venv", "coverage", "data"]);
@@ -31,11 +32,7 @@ export async function readChunks(root: string, repo: string): Promise<{ chunks: 
       if (body.includes("\0")) { skipped++; continue; }
       bytes += stat.size; files++;
       const relative = path.relative(root, full).split(path.sep).join("/");
-      const lines = body.split("\n");
-      for (let i = 0; i < lines.length; i += 48) {
-        const part = lines.slice(i, i + 60).join("\n");
-        if (part.trim()) chunks.push({ repo, path: relative, startLine: i + 1, endLine: Math.min(i + 60, lines.length), symbol: relative, summary: relative, body: part });
-      }
+      chunks.push(...await chunkSource(repo, relative, body));
     }
   }
   await walk(root); return { chunks, files, skipped };
@@ -106,7 +103,7 @@ export class Workspace {
       .sort((a, b) => (a.path.includes("/") ? 1 : 0) - (b.path.includes("/") ? 1 : 0) || a.startLine - b.startLine)
       .slice(0, 6).map(chunk => ({ chunk, score: 1 })) : [];
     const candidates = overviewChunks.length ? [...overviewChunks, ...ranked] : ranked;
-    const selected = candidates.filter((r, i, all) => !all.slice(0, i).some(p => p.chunk.path === r.chunk.path && Math.abs(p.chunk.startLine - r.chunk.startLine) < 60)).slice(0, 4);
+    const selected = candidates.filter((r, i, all) => !all.slice(0, i).some(p => p.chunk.path === r.chunk.path && p.chunk.startLine <= r.chunk.endLine && r.chunk.startLine <= p.chunk.endLine)).slice(0, 4);
     const citations = selected.map(({ chunk: c, score }) => ({ path: c.path, startLine: c.startLine, endLine: c.endLine, body: c.body, score, url: `${repo.url}/blob/${repo.commit}/${c.path.split("/").map(encodeURIComponent).join("/")}#L${c.startLine}-L${c.endLine}` }));
     let answer = citations.length ? `I found ${citations.length} relevant code passage${citations.length === 1 ? "" : "s"} for your question.\n\n${citations.map((c, i) => `[${i + 1}] ${c.path}, lines ${c.startLine}–${c.endLine}`).join("\n")}\n\nReview the source excerpts below for the implementation. This local evidence mode retrieves code; it does not generate an AI explanation.` : "I could not find matching code in this index. Try a function name, file path, or specific technical term used in the repository.";
     if (citations.length && process.env.LLM_MODEL) {

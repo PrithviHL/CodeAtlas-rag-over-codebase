@@ -11,6 +11,7 @@ The live app runs from **`feature/render-public-app`**. Google sign-in is requir
 - Google OAuth login, a top-right account menu, and sign-out.
 - Public GitHub imports into separate temporary browser workspaces.
 - Natural-language questions with Groq-generated answers when the provider is available; explicit evidence fallback on failure.
+- AST-aware declaration chunks using bundled Tree-sitter WASM parsers; bounded text windows for unsupported files or syntax errors.
 - Search combining field-weighted BM25 and lightweight hashed vectors, followed by reciprocal-rank fusion.
 - Expandable source excerpts and GitHub links pinned to the indexed commit and line range.
 - Source snapshots, question history, and index removal within the browser workspace.
@@ -44,6 +45,10 @@ Open [localhost:3000](http://localhost:3000). This local single-user mode binds 
 To use Groq, export `LLM_BASE_URL=https://api.groq.com/openai/v1`, `LLM_MODEL=openai/gpt-oss-20b`, and a private `LLM_API_KEY` before starting. Native `npm start` does not load `.env` automatically. The key stays on the server; questions, selected source excerpts, and limited conversation history are sent to the configured provider. Free-provider quotas apply.
 
 Optional local-model scripts (`run-model.sh`, `start-local.sh`) require separately downloaded llama.cpp-compatible runtime/model files under ignored `.runtime/`; weights are not part of this repository. See `.env.example` for model settings. `./run.sh` can locate the bundled Codex Node runtime on machines where that runtime is installed.
+
+### Web chunking
+
+The web app parses TypeScript/TSX, JavaScript/JSX, Python, Go, Rust, Java, Ruby, C/C++ (using the C++ grammar), shell, and CSS on the server. Declaration chunks retain symbols and exact source line ranges; imports and gaps are included. Large spans split into windows of at most 60 lines / 2,400 characters with overlap. Unsupported formats (including Vue/Svelte) and syntax errors use text windows. Parsers are bundled with the application: no parsing API, extra service, or API key is needed. Remove and re-import an existing index to apply the new chunker. This does not establish a retrieval-quality improvement.
 
 ## Local fleet engine
 

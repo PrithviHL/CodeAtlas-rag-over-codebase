@@ -6,6 +6,7 @@ export type Chunk = {
   symbol: string;
   body: string;
   summary: string;
+  strategy?: string;
 };
 
 export type RankedChunk = { chunk: Chunk; score: number };

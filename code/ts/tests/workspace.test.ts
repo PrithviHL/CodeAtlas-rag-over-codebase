@@ -26,7 +26,7 @@ test("index, query, persistence, deletion and HTTP boundary", async () => {
     await workspace.save(repo);
     const loaded = new Workspace(workspace.dir); await loaded.load();
     const message = await loaded.ask(repo.id, "authorize token");
-    assert.equal(message.citations[0].path, "auth.ts"); assert.match(message.citations[0].url, /blob\/abc123\/auth.ts#L1-L2/);
+    assert.equal(message.citations[0].path, "auth.ts"); assert.match(message.citations[0].url, /blob\/abc123\/auth.ts#L1-L1/);
     const overview = await loaded.ask(repo.id, "what is this project about");
     assert.equal(overview.citations[0].path, "README.md");
     const originalFetch = globalThis.fetch, originalModel = process.env.LLM_MODEL;
@@ -56,5 +56,28 @@ test("index, query, persistence, deletion and HTTP boundary", async () => {
     assert.equal((await app.request("http://localhost/api/repos/fixture", { method: "DELETE", headers: { "Content-Type": "application/json" }, body: "{}" })).status, 200);
     assert.equal((await app.request("http://localhost/api/repos/fixture/messages")).status, 404);
     const empty = new Workspace(workspace.dir); await empty.load(); assert.equal(empty.list().length, 0);
+  } finally { await fs.rm(dir, { recursive: true, force: true }); }
+});
+
+test("nearby AST declarations remain separate evidence with pinned exact lines", async () => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "atlas-citations-"));
+  try {
+    const source = path.join(dir, "source"); await fs.mkdir(source);
+    await fs.writeFile(path.join(source, "auth.ts"), "export function authorizeUser() { return true; }\nexport function authorizeAdmin() { return false; }\n");
+    const corpus = await readChunks(source, "owner/repo");
+    assert.deepEqual(corpus.chunks.map(c => c.symbol), ["authorizeUser", "authorizeAdmin"]);
+    const workspace = new Workspace(path.join(dir, "data")); await workspace.load();
+    await workspace.save({ id: "ast", name: "owner/repo", url: "https://github.com/owner/repo", commit: "pinned", ...corpus, createdAt: new Date().toISOString(), messages: [] });
+    await workspace.load();
+    const previous = process.env.LLM_MODEL;
+    try {
+      process.env.LLM_MODEL = "";
+      const message = await workspace.ask("ast", "authorizeUser authorizeAdmin");
+      assert.equal(message.citations.length, 2);
+      assert.deepEqual(message.citations.map(c => c.startLine).sort(), [1, 2]);
+      for (const c of message.citations) assert.equal(c.url, `https://github.com/owner/repo/blob/pinned/auth.ts#L${c.startLine}-L${c.endLine}`);
+    } finally {
+      if (previous === undefined) delete process.env.LLM_MODEL; else process.env.LLM_MODEL = previous;
+    }
   } finally { await fs.rm(dir, { recursive: true, force: true }); }
 });
