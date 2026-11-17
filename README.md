@@ -11,10 +11,23 @@ The live app and current implementation are on **[`feature/render-public-app`](h
 - Google OAuth sign-in, account menu, and sign-out.
 - Public GitHub imports into isolated, temporary browser workspaces.
 - Groq-generated answers when available, with explicit retrieved-evidence fallback.
-- Expandable source excerpts and GitHub citations pinned to the indexed revision.
+- AST-aware chunking and complete named function/class evidence, with GitHub citations pinned to the indexed revision.
 - Hosted demo limits: one repository per browser and bounded indexing; data expires on restart or after inactivity.
 
 The hosted app uses the lightweight TypeScript retrieval pipeline. The more advanced LangGraph fleet engine has been run locally and is not connected to the Render service. Free-service cold starts, Google audience settings, and provider quotas can affect access.
+
+## Measured web evaluation
+
+| Metric | Measured result | Scope |
+|---|---|---|
+| Exact-source recovery | **96.6% (281/291)** | Body and line-span agreement with separate Python / TypeScript parsers on Flask, Hono and Express snapshots |
+| AST + BM25 lexical MRR@10 | **0.3927 → 0.4565 (+16.2%)** | 5,000 CodeSearchNet-derived queries, five languages, 1,000 candidates per language; component ablation |
+| Retrieval / evidence-selection p95 | **3.59 ms locally** | Excludes HTTP, network and LLM generation |
+| Automated checks | **53 web + 10 engine tests passed** | Functional checks; not answer-quality scores |
+
+The full web evidence pipeline scored **0.2596 MRR@10**, below the fixed-window lexical baseline. The 16.2% gain applies only to the AST + BM25 component, and exact-source recovery is not generated-answer accuracy. The hosted app uses hashed vectors; real semantic embeddings remain in the separate local engine.
+
+[Protocol, raw results, reproduction commands and limitations](https://github.com/PrithviHL/rag-over-codebase/blob/feature/render-public-app/code/ts/benchmarks/web-evaluation/README.md).
 
 ## Documentation
 
