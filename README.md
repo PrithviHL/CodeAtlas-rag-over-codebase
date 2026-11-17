@@ -2,7 +2,7 @@
 
 Explore public GitHub repositories with natural-language questions, generated explanations, and commit-pinned source citations.
 
-**[Open the live app](https://codeatlas-rag.onrender.com)** · [Deployment and Google sign-in](docs/deployment.md) · [Fleet engine](engine/README.md) · [Measured local benchmark](engine/benchmarks/development/README.md)
+**[Open the live app](https://codeatlas-rag.onrender.com)** · [Web evaluation and metrics](code/ts/benchmarks/web-evaluation/README.md) · [Deployment and Google sign-in](docs/deployment.md) · [Fleet engine](engine/README.md) · [Measured local benchmark](engine/benchmarks/development/README.md)
 
 The live app runs from **`feature/render-public-app`**. Google sign-in is required. The repository's `main` branch retains the earlier learning scaffold; use this branch for the deployed application.
 
