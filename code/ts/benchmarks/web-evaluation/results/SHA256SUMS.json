@@ -1,0 +1,18 @@
+{
+  "analysis.json": "057435a93ffac4a59b10b2d2cac623195d15c53c061075947a342d96775e8ecb",
+  "exact-code.json": "ce924ed016766f6200265be87d84653a8aa9b7d61a317844f9b26ac0fbb9e7fa",
+  "go-corpus-ids.json": "936ba930135897d73e3f6fb29dc76e3775b8f1c19c833416a3647d31efd2a1b7",
+  "go-queries.jsonl": "a86227b6cc9ecbf4f55db0ff8979b2f6eb75989674c887ea9dd2b9c9f8e6be23",
+  "inputs.json": "58cc2235832cfa65681a683e5f3cca940169e0c9faec688e5b301655d573ef18",
+  "java-corpus-ids.json": "9d2030520f2c3c66dd43e53109ee5aaf5288f9ba13eb68c08ba51db35b65f14d",
+  "java-queries.jsonl": "a1e74e8333ee943bdd61719dfeda23ea63fb765989e4ed0c5b47dd332b4e6183",
+  "javascript-corpus-ids.json": "7404075f0a8660aa2d3ab11edb4cbae750a47e64a9ad0a5e5029dce8705bc124",
+  "javascript-queries.jsonl": "2671a5f1a3c946b112f809a1385a9605864be09d37dd2174b5909584a9094c4b",
+  "python-corpus-ids.json": "2e51cf3c9b1524d93f4e9b94f3edbb782a4aef8a084620545390fa54bca71010",
+  "python-queries.jsonl": "0259104ec9acb5d7380d081ba6e9050b8056ae4896551b80f53e2ba33745101e",
+  "ruby-corpus-ids.json": "0596de92157a0ca0ea4ced6c903fa8974cc0c083f99560ea353bdb9bb2d23bbb",
+  "ruby-queries.jsonl": "43daf7e9eb09f4fd55b9c469ffe6f9749c6c7aae042954055d62b9756169f02d",
+  "source-manifest.json": "82f3b108d90874867624622d08c30d4efdb22621cde3324fb9ab7e03a9c986f0",
+  "summary.json": "026e9fcaa823b3173f26111c570b23d5db29d345564fb26d0c32dbb121472a3f",
+  "verification.json": "77edc9e61daa27bc704f135a7bca942ca28349c7ed9a14fceeef123b1a40f835"
+}

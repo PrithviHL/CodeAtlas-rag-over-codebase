@@ -1,0 +1,28 @@
+{
+  "application_target_commit": "a39bfe75f898ce616b9b25b57551ef23ac53646c",
+  "sha256": {
+    "code/ts/src/app.ts": "e3e4a6fa92cb7983068785d97517c750d0193d3f0844738ab6dc69a9341b061b",
+    "code/ts/src/chunking.ts": "cbb51eaeb841352dc15f5ed3f22500a3b7aca20b2673b84d234b9317bfac117d",
+    "code/ts/src/config.ts": "bac2a8d6f5fff1fe9aabc581d3818e86b15aa006fe9bf6da29f4c8344526c434",
+    "code/ts/src/corpus.ts": "7f881664a7a473caff22f8e45ab77326b99d0e3370addb828456395a3e91ed65",
+    "code/ts/src/engine_proxy.ts": "9bfe4209ef79c1b3674066f2668ef50d7375f1d8c8da5aa519121609fa70f6ed",
+    "code/ts/src/evidence.ts": "2ff4a74cfbb106d53f26338546c4bc28edd58cec42ad1b6eaea200fd0f3a82e8",
+    "code/ts/src/google_auth.ts": "40ef3ab04dfcda85fc9fad12d8d9faa1c4cf240d354191a26d6254f74fb9edf0",
+    "code/ts/src/index.ts": "029905819d82efd5a89f0975bddee49f1a22d086a0e868b9274f0e18c42f037e",
+    "code/ts/src/index_store.ts": "6dc89cdff1ccdbf0faf41d4303f423cc69e356c5d39e164d4d77b275264220e5",
+    "code/ts/src/public_app.ts": "737d15ec8bdfc17ffe98a70710a90c9bffa8d5d19d265675a94ef0dafe8b3ad6",
+    "code/ts/src/retrieval.ts": "9979948b99dbe9778dc5baf3586b6bbf0842998a1c0532255dad86e4ec869553",
+    "code/ts/src/server.ts": "a92f4434e83db3291390ec8c58d949eae7e409c7f442e5454808d4f4d4b8fa3e",
+    "code/ts/src/types.ts": "27522324f87cf4a614096ed890eb97b5346c899cc08b030479e93d65b72fb74a",
+    "code/ts/src/web.ts": "92f085b44cd5e2343b8f1771514d73e5dfab2a39f1b83e998de7ff40f65f79af",
+    "code/ts/src/workspace.ts": "75a1cf1ab14f55eb5fc0e924f8a8ca8e72cb568c36f6029d3573846d8f0e2fc4",
+    "code/ts/benchmarks/web-evaluation/run.ts": "7eac4e8142337f05735e7a124893a5b077433ed789fc132204bb402bfba8c1e9",
+    "code/ts/benchmarks/web-evaluation/analyze.py": "3a422ea123de78c41ba6fe5d266db6f6c1ba014fd783c72dadafa9bf8b7ad3ad",
+    "code/ts/benchmarks/web-evaluation/prepare.py": "0d91f7ed2ff761043e735b1e25b3b5fcc7c8a63cf14235d83630529bf0967033",
+    "code/ts/benchmarks/web-evaluation/reference_python.py": "41e0e59c842f91d9f45692d8e8700f777d1dea41ed8e82bf0ca94a9a026bd7ee",
+    "code/ts/benchmarks/web-evaluation/PROTOCOL.md": "adff437e460cc84ed8fafe771516b66ffc1e46eeb6b65e8490f3f91972dbc18c",
+    "code/ts/package.json": "dc59718d89b92777758e6f1f5734496a219970fddf9a3f437b2420178fe8335f",
+    "code/ts/pnpm-lock.yaml": "b90412ba8cad448566488dabc4a61577350cc1b44dc2868b6a63898b9d5c77c3",
+    "code/ts/tsconfig.benchmarks.json": "4dd34562cc4cbdc8bd0bcfccbc4fc7a89e632dc6a853a3e9f3cad7b6b8a3dba8"
+  }
+}

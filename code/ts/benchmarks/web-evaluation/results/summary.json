@@ -1,0 +1,779 @@
+{
+  "target_commit": "a39bfe75f898ce616b9b25b57551ef23ac53646c",
+  "measured_at": "2026-11-17T00:33:31.480Z",
+  "protocol_sha256": "adff437e460cc84ed8fafe771516b66ffc1e46eeb6b65e8490f3f91972dbc18c",
+  "environment": {
+    "node": "v24.22.1",
+    "os": "darwin",
+    "release": "25.6.0",
+    "arch": "arm64",
+    "cpu": "Apple M4 Pro",
+    "logical_cpus": 12,
+    "ram_bytes": 25769803776,
+    "public_demo": true,
+    "llm_calls": 0
+  },
+  "dataset_revision": "68e8f0731a656fa4bd5b7c81936d95ad48a39bfe",
+  "retrieval": {
+    "python": {
+      "documents": 1000,
+      "queries": 1000,
+      "source_bytes": 862868,
+      "ast_chunks": 1092,
+      "window_chunks": 1111,
+      "definitions": 1124,
+      "syntax_error_chunks": 16,
+      "parse_ms": 146.905166,
+      "index_build_ms": 35.990584000000126,
+      "metrics": {
+        "window_bm25": {
+          "queries": 1000,
+          "mrr_at_10": 0.48152777777777733,
+          "hit_at_1": 0.39,
+          "hit_at_5": 0.607,
+          "hit_at_10": 0.672,
+          "latency": {
+            "count": 1000,
+            "median_ms": 0.8374579999999696,
+            "p95_ms": 4.460250000000087,
+            "max_ms": 20.482958999999937
+          }
+        },
+        "ast_bm25": {
+          "queries": 1000,
+          "mrr_at_10": 0.5074210317460314,
+          "hit_at_1": 0.416,
+          "hit_at_5": 0.632,
+          "hit_at_10": 0.697,
+          "latency": {
+            "count": 1000,
+            "median_ms": 0.751875000000382,
+            "p95_ms": 4.382125000000087,
+            "max_ms": 21.771583000000646
+          }
+        },
+        "ast_hybrid": {
+          "queries": 1000,
+          "mrr_at_10": 0.2717753968253963,
+          "hit_at_1": 0.119,
+          "hit_at_5": 0.517,
+          "hit_at_10": 0.691,
+          "latency": {
+            "count": 1000,
+            "median_ms": 0.9548749999999018,
+            "p95_ms": 4.6195000000006985,
+            "max_ms": 22.142915999999786
+          }
+        },
+        "web_evidence": {
+          "queries": 1000,
+          "mrr_at_10": 0.12208888888888887,
+          "hit_at_1": 0.074,
+          "hit_at_5": 0.197,
+          "hit_at_10": 0.238,
+          "latency": {
+            "count": 1000,
+            "median_ms": 1.137666999999965,
+            "p95_ms": 4.822250000000167,
+            "max_ms": 22.710915999999997
+          }
+        }
+      },
+      "comparisons": [
+        {
+          "baseline": "window_bm25",
+          "candidate": "web_evidence",
+          "delta_mrr": -0.35943888888888903,
+          "ci95": [
+            -0.3880499999999998,
+            -0.3305186507936508
+          ],
+          "method": "paired query bootstrap; 2,000 resamples; fixed seed 20261116; no multiplicity adjustment"
+        },
+        {
+          "baseline": "ast_bm25",
+          "candidate": "ast_hybrid",
+          "delta_mrr": -0.23564563492063498,
+          "ci95": [
+            -0.2560496031746036,
+            -0.2167496031746033
+          ],
+          "method": "paired query bootstrap; 2,000 resamples; fixed seed 20261116; no multiplicity adjustment"
+        }
+      ]
+    },
+    "javascript": {
+      "documents": 1000,
+      "queries": 1000,
+      "source_bytes": 1416894,
+      "ast_chunks": 1458,
+      "window_chunks": 1402,
+      "definitions": 1336,
+      "syntax_error_chunks": 7,
+      "parse_ms": 202.36625000000004,
+      "index_build_ms": 53.022540999999364,
+      "metrics": {
+        "window_bm25": {
+          "queries": 1000,
+          "mrr_at_10": 0.3992146825396824,
+          "hit_at_1": 0.314,
+          "hit_at_5": 0.506,
+          "hit_at_10": 0.588,
+          "latency": {
+            "count": 1000,
+            "median_ms": 0.6557920000004742,
+            "p95_ms": 2.4700829999992493,
+            "max_ms": 32.72704200000044
+          }
+        },
+        "ast_bm25": {
+          "queries": 1000,
+          "mrr_at_10": 0.41506904761904745,
+          "hit_at_1": 0.333,
+          "hit_at_5": 0.525,
+          "hit_at_10": 0.596,
+          "latency": {
+            "count": 1000,
+            "median_ms": 0.6482919999998558,
+            "p95_ms": 2.4792499999994106,
+            "max_ms": 31.739958000000115
+          }
+        },
+        "ast_hybrid": {
+          "queries": 1000,
+          "mrr_at_10": 0.2901480158730158,
+          "hit_at_1": 0.15,
+          "hit_at_5": 0.509,
+          "hit_at_10": 0.595,
+          "latency": {
+            "count": 1000,
+            "median_ms": 0.9067910000003394,
+            "p95_ms": 2.7592500000000655,
+            "max_ms": 32.13262499999928
+          }
+        },
+        "web_evidence": {
+          "queries": 1000,
+          "mrr_at_10": 0.1517666666666667,
+          "hit_at_1": 0.092,
+          "hit_at_5": 0.244,
+          "hit_at_10": 0.278,
+          "latency": {
+            "count": 1000,
+            "median_ms": 1.0848749999995562,
+            "p95_ms": 2.9061659999997573,
+            "max_ms": 32.5211249999993
+          }
+        }
+      },
+      "comparisons": [
+        {
+          "baseline": "window_bm25",
+          "candidate": "web_evidence",
+          "delta_mrr": -0.24744801587301568,
+          "ci95": [
+            -0.27396150793650775,
+            -0.22138492063492038
+          ],
+          "method": "paired query bootstrap; 2,000 resamples; fixed seed 20261116; no multiplicity adjustment"
+        },
+        {
+          "baseline": "ast_bm25",
+          "candidate": "ast_hybrid",
+          "delta_mrr": -0.12492103174603172,
+          "ci95": [
+            -0.1404134920634921,
+            -0.10896865079365073
+          ],
+          "method": "paired query bootstrap; 2,000 resamples; fixed seed 20261116; no multiplicity adjustment"
+        }
+      ]
+    },
+    "go": {
+      "documents": 1000,
+      "queries": 1000,
+      "source_bytes": 563729,
+      "ast_chunks": 1085,
+      "window_chunks": 1125,
+      "definitions": 1000,
+      "syntax_error_chunks": 0,
+      "parse_ms": 130.31033299999945,
+      "index_build_ms": 26.91204199999993,
+      "metrics": {
+        "window_bm25": {
+          "queries": 1000,
+          "mrr_at_10": 0.5098817460317456,
+          "hit_at_1": 0.408,
+          "hit_at_5": 0.646,
+          "hit_at_10": 0.724,
+          "latency": {
+            "count": 1000,
+            "median_ms": 0.34654200000113633,
+            "p95_ms": 1.279791999999361,
+            "max_ms": 5.681082999999489
+          }
+        },
+        "ast_bm25": {
+          "queries": 1000,
+          "mrr_at_10": 0.6700583333333334,
+          "hit_at_1": 0.574,
+          "hit_at_5": 0.804,
+          "hit_at_10": 0.855,
+          "latency": {
+            "count": 1000,
+            "median_ms": 0.30929099999957543,
+            "p95_ms": 1.1984169999996084,
+            "max_ms": 5.041832999999315
+          }
+        },
+        "ast_hybrid": {
+          "queries": 1000,
+          "mrr_at_10": 0.38200357142857067,
+          "hit_at_1": 0.181,
+          "hit_at_5": 0.702,
+          "hit_at_10": 0.85,
+          "latency": {
+            "count": 1000,
+            "median_ms": 0.5008749999997235,
+            "p95_ms": 1.3991249999999127,
+            "max_ms": 5.450749999999971
+          }
+        },
+        "web_evidence": {
+          "queries": 1000,
+          "mrr_at_10": 0.7832837301587314,
+          "hit_at_1": 0.685,
+          "hit_at_5": 0.917,
+          "hit_at_10": 0.944,
+          "latency": {
+            "count": 1000,
+            "median_ms": 0.6288339999991877,
+            "p95_ms": 1.5309159999997064,
+            "max_ms": 5.967124999999214
+          }
+        }
+      },
+      "comparisons": [
+        {
+          "baseline": "window_bm25",
+          "candidate": "web_evidence",
+          "delta_mrr": 0.2734019841269842,
+          "ci95": [
+            0.2414674603174603,
+            0.303075396825397
+          ],
+          "method": "paired query bootstrap; 2,000 resamples; fixed seed 20261116; no multiplicity adjustment"
+        },
+        {
+          "baseline": "ast_bm25",
+          "candidate": "ast_hybrid",
+          "delta_mrr": -0.28805476190476215,
+          "ci95": [
+            -0.3072242063492063,
+            -0.2683805555555558
+          ],
+          "method": "paired query bootstrap; 2,000 resamples; fixed seed 20261116; no multiplicity adjustment"
+        }
+      ]
+    },
+    "java": {
+      "documents": 1000,
+      "queries": 1000,
+      "source_bytes": 421947,
+      "ast_chunks": 1012,
+      "window_chunks": 1018,
+      "definitions": 1007,
+      "syntax_error_chunks": 0,
+      "parse_ms": 76.61545899999874,
+      "index_build_ms": 19.944625000000087,
+      "metrics": {
+        "window_bm25": {
+          "queries": 1000,
+          "mrr_at_10": 0.16296031746031747,
+          "hit_at_1": 0.101,
+          "hit_at_5": 0.234,
+          "hit_at_10": 0.353,
+          "latency": {
+            "count": 1000,
+            "median_ms": 1.36974999999984,
+            "p95_ms": 3.8551669999997102,
+            "max_ms": 13.535958000000392
+          }
+        },
+        "ast_bm25": {
+          "queries": 1000,
+          "mrr_at_10": 0.24661230158730144,
+          "hit_at_1": 0.169,
+          "hit_at_5": 0.343,
+          "hit_at_10": 0.487,
+          "latency": {
+            "count": 1000,
+            "median_ms": 1.2087499999997817,
+            "p95_ms": 3.6014589999995223,
+            "max_ms": 13.407791999999972
+          }
+        },
+        "ast_hybrid": {
+          "queries": 1000,
+          "mrr_at_10": 0.1149654761904762,
+          "hit_at_1": 0.043,
+          "hit_at_5": 0.143,
+          "hit_at_10": 0.456,
+          "latency": {
+            "count": 1000,
+            "median_ms": 1.410541999999623,
+            "p95_ms": 3.8288329999995767,
+            "max_ms": 13.751291999999012
+          }
+        },
+        "web_evidence": {
+          "queries": 1000,
+          "mrr_at_10": 0.07322142857142863,
+          "hit_at_1": 0.046,
+          "hit_at_5": 0.104,
+          "hit_at_10": 0.154,
+          "latency": {
+            "count": 1000,
+            "median_ms": 1.5482499999998254,
+            "p95_ms": 4.020249999999578,
+            "max_ms": 14.19762499999888
+          }
+        }
+      },
+      "comparisons": [
+        {
+          "baseline": "window_bm25",
+          "candidate": "web_evidence",
+          "delta_mrr": -0.0897388888888889,
+          "ci95": [
+            -0.10939642857142858,
+            -0.06903650793650798
+          ],
+          "method": "paired query bootstrap; 2,000 resamples; fixed seed 20261116; no multiplicity adjustment"
+        },
+        {
+          "baseline": "ast_bm25",
+          "candidate": "ast_hybrid",
+          "delta_mrr": -0.13164682539682532,
+          "ci95": [
+            -0.14811468253968274,
+            -0.11489206349206346
+          ],
+          "method": "paired query bootstrap; 2,000 resamples; fixed seed 20261116; no multiplicity adjustment"
+        }
+      ]
+    },
+    "ruby": {
+      "documents": 1000,
+      "queries": 1000,
+      "source_bytes": 577652,
+      "ast_chunks": 1045,
+      "window_chunks": 1064,
+      "definitions": 1013,
+      "syntax_error_chunks": 0,
+      "parse_ms": 141.4586670000008,
+      "index_build_ms": 25.788457999999082,
+      "metrics": {
+        "window_bm25": {
+          "queries": 1000,
+          "mrr_at_10": 0.41012857142857123,
+          "hit_at_1": 0.328,
+          "hit_at_5": 0.523,
+          "hit_at_10": 0.587,
+          "latency": {
+            "count": 1000,
+            "median_ms": 0.4979589999984455,
+            "p95_ms": 2.9439580000016576,
+            "max_ms": 43.61570799999936
+          }
+        },
+        "ast_bm25": {
+          "queries": 1000,
+          "mrr_at_10": 0.44336071428571383,
+          "hit_at_1": 0.356,
+          "hit_at_5": 0.554,
+          "hit_at_10": 0.64,
+          "latency": {
+            "count": 1000,
+            "median_ms": 0.438958000000639,
+            "p95_ms": 2.785915999998906,
+            "max_ms": 41.51925000000119
+          }
+        },
+        "ast_hybrid": {
+          "queries": 1000,
+          "mrr_at_10": 0.2621472222222219,
+          "hit_at_1": 0.143,
+          "hit_at_5": 0.416,
+          "hit_at_10": 0.623,
+          "latency": {
+            "count": 1000,
+            "median_ms": 0.640333000001192,
+            "p95_ms": 3.150374999999258,
+            "max_ms": 42.058375000000524
+          }
+        },
+        "web_evidence": {
+          "queries": 1000,
+          "mrr_at_10": 0.16780198412698408,
+          "hit_at_1": 0.115,
+          "hit_at_5": 0.243,
+          "hit_at_10": 0.288,
+          "latency": {
+            "count": 1000,
+            "median_ms": 0.7929579999999987,
+            "p95_ms": 3.338459000000512,
+            "max_ms": 43.262667000000874
+          }
+        }
+      },
+      "comparisons": [
+        {
+          "baseline": "window_bm25",
+          "candidate": "web_evidence",
+          "delta_mrr": -0.2423265873015873,
+          "ci95": [
+            -0.2704928571428572,
+            -0.21287420634920642
+          ],
+          "method": "paired query bootstrap; 2,000 resamples; fixed seed 20261116; no multiplicity adjustment"
+        },
+        {
+          "baseline": "ast_bm25",
+          "candidate": "ast_hybrid",
+          "delta_mrr": -0.1812134920634922,
+          "ci95": [
+            -0.2000210317460318,
+            -0.16179047619047646
+          ],
+          "method": "paired query bootstrap; 2,000 resamples; fixed seed 20261116; no multiplicity adjustment"
+        }
+      ]
+    },
+    "overall": {
+      "metrics": {
+        "window_bm25": {
+          "queries": 5000,
+          "mrr_at_10": 0.39274261904761754,
+          "hit_at_1": 0.3082,
+          "hit_at_5": 0.5032,
+          "hit_at_10": 0.5848,
+          "latency": {
+            "count": 5000,
+            "median_ms": 0.6179999999985739,
+            "p95_ms": 3.3192909999997937,
+            "max_ms": 43.61570799999936
+          }
+        },
+        "ast_bm25": {
+          "queries": 5000,
+          "mrr_at_10": 0.4565042857142845,
+          "hit_at_1": 0.3696,
+          "hit_at_5": 0.5716,
+          "hit_at_10": 0.655,
+          "latency": {
+            "count": 5000,
+            "median_ms": 0.5638749999998254,
+            "p95_ms": 3.1701670000002196,
+            "max_ms": 41.51925000000119
+          }
+        },
+        "ast_hybrid": {
+          "queries": 5000,
+          "mrr_at_10": 0.26420793650793617,
+          "hit_at_1": 0.1272,
+          "hit_at_5": 0.4574,
+          "hit_at_10": 0.643,
+          "latency": {
+            "count": 5000,
+            "median_ms": 0.7788749999999709,
+            "p95_ms": 3.4113750000001346,
+            "max_ms": 42.058375000000524
+          }
+        },
+        "web_evidence": {
+          "queries": 5000,
+          "mrr_at_10": 0.25963253968253946,
+          "hit_at_1": 0.2024,
+          "hit_at_5": 0.341,
+          "hit_at_10": 0.3804,
+          "latency": {
+            "count": 5000,
+            "median_ms": 0.9396249999990687,
+            "p95_ms": 3.5898329999999987,
+            "max_ms": 43.262667000000874
+          }
+        }
+      },
+      "comparisons": [
+        {
+          "baseline": "window_bm25",
+          "candidate": "web_evidence",
+          "delta_mrr": -0.13311007936507957,
+          "ci95": [
+            -0.1467570634920636,
+            -0.1191615873015873
+          ],
+          "method": "paired query bootstrap; 2,000 resamples; fixed seed 20261116; no multiplicity adjustment"
+        },
+        {
+          "baseline": "ast_bm25",
+          "candidate": "ast_hybrid",
+          "delta_mrr": -0.19229634920634825,
+          "ci95": [
+            -0.20097031746031557,
+            -0.18411380952380826
+          ],
+          "method": "paired query bootstrap; 2,000 resamples; fixed seed 20261116; no multiplicity adjustment"
+        }
+      ]
+    }
+  },
+  "repositories": [
+    {
+      "repo": "pallets/flask",
+      "commit": "49943b5a94413a530761350f04e896f76e8d620e",
+      "clone_seconds": 0.8318734997883439,
+      "clone_conditions": "one shallow public GitHub clone; network and filesystem included",
+      "inventory": {
+        "files": 100,
+        "skipped": 117,
+        "bytes": 541950,
+        "lines": 16607,
+        "chunks": 705,
+        "definitions": 1196
+      },
+      "independent_reference_count": 1196,
+      "reference_parser_errors": [],
+      "trials": [
+        {
+          "trial": 0,
+          "parser_initialization": "first use for this repo; process may have prior languages",
+          "read_parse_ms": 119.67841599999997,
+          "index_build_ms": 20.12170900000001,
+          "persist_ms": 8.112916000000041,
+          "total_ms": 147.91304100000002,
+          "rss_bytes": 360693760
+        },
+        {
+          "trial": 1,
+          "parser_initialization": "warm",
+          "read_parse_ms": 90.15558299999998,
+          "index_build_ms": 16.652667000000065,
+          "persist_ms": 10.93629199999998,
+          "total_ms": 117.74454200000002,
+          "rss_bytes": 370327552
+        },
+        {
+          "trial": 2,
+          "parser_initialization": "warm",
+          "read_parse_ms": 86.22258299999999,
+          "index_build_ms": 18.555999999999926,
+          "persist_ms": 5.6042920000001,
+          "total_ms": 110.38287500000001,
+          "rss_bytes": 391790592
+        },
+        {
+          "trial": 3,
+          "parser_initialization": "warm",
+          "read_parse_ms": 82.65695799999992,
+          "index_build_ms": 17.016125000000102,
+          "persist_ms": 5.8570419999999785,
+          "total_ms": 105.530125,
+          "rss_bytes": 394100736
+        },
+        {
+          "trial": 4,
+          "parser_initialization": "warm",
+          "read_parse_ms": 86.30066699999998,
+          "index_build_ms": 13.55229200000008,
+          "persist_ms": 6.894665999999916,
+          "total_ms": 106.74762499999997,
+          "rss_bytes": 386613248
+        }
+      ],
+      "warm_total": {
+        "count": 4,
+        "median_ms": 106.74762499999997,
+        "p95_ms": 117.74454200000002,
+        "max_ms": 117.74454200000002
+      }
+    },
+    {
+      "repo": "honojs/hono",
+      "commit": "676c8f80fcafc49e6e74c847a8f0d9c44cc7faee",
+      "clone_seconds": 1.0390982078388333,
+      "clone_conditions": "one shallow public GitHub clone; network and filesystem included",
+      "inventory": {
+        "files": 100,
+        "skipped": 447,
+        "bytes": 235120,
+        "lines": 8199,
+        "chunks": 356,
+        "definitions": 169
+      },
+      "independent_reference_count": 130,
+      "reference_parser_errors": [],
+      "trials": [
+        {
+          "trial": 0,
+          "parser_initialization": "first use for this repo; process may have prior languages",
+          "read_parse_ms": 70.234917,
+          "index_build_ms": 5.738207999999986,
+          "persist_ms": 3.0272079999999733,
+          "total_ms": 79.00033299999996,
+          "rss_bytes": 399704064
+        },
+        {
+          "trial": 1,
+          "parser_initialization": "warm",
+          "read_parse_ms": 68.40966600000002,
+          "index_build_ms": 6.340791999999965,
+          "persist_ms": 3.3182500000000346,
+          "total_ms": 78.06870800000002,
+          "rss_bytes": 350388224
+        },
+        {
+          "trial": 2,
+          "parser_initialization": "warm",
+          "read_parse_ms": 53.615291999999954,
+          "index_build_ms": 5.501624999999876,
+          "persist_ms": 2.6112080000000333,
+          "total_ms": 61.728124999999864,
+          "rss_bytes": 352223232
+        },
+        {
+          "trial": 3,
+          "parser_initialization": "warm",
+          "read_parse_ms": 58.226874999999836,
+          "index_build_ms": 6.2331250000002,
+          "persist_ms": 3.4930829999998423,
+          "total_ms": 67.95308299999988,
+          "rss_bytes": 374587392
+        },
+        {
+          "trial": 4,
+          "parser_initialization": "warm",
+          "read_parse_ms": 56.06183299999998,
+          "index_build_ms": 5.691000000000031,
+          "persist_ms": 3.16862500000002,
+          "total_ms": 64.92145800000003,
+          "rss_bytes": 375635968
+        }
+      ],
+      "warm_total": {
+        "count": 4,
+        "median_ms": 64.92145800000003,
+        "p95_ms": 78.06870800000002,
+        "max_ms": 78.06870800000002
+      }
+    },
+    {
+      "repo": "expressjs/express",
+      "commit": "43fca52d28a422c8be48fd489cbd4f2d6152bab6",
+      "clone_seconds": 0.6665481254458427,
+      "clone_conditions": "one shallow public GitHub clone; network and filesystem included",
+      "inventory": {
+        "files": 100,
+        "skipped": 103,
+        "bytes": 401477,
+        "lines": 15357,
+        "chunks": 764,
+        "definitions": 91
+      },
+      "independent_reference_count": 91,
+      "reference_parser_errors": [],
+      "trials": [
+        {
+          "trial": 0,
+          "parser_initialization": "first use for this repo; process may have prior languages",
+          "read_parse_ms": 71.70862499999998,
+          "index_build_ms": 12.153542000000016,
+          "persist_ms": 4.530999999999949,
+          "total_ms": 88.39316699999995,
+          "rss_bytes": 351436800
+        },
+        {
+          "trial": 1,
+          "parser_initialization": "warm",
+          "read_parse_ms": 59.089833,
+          "index_build_ms": 10.76649999999995,
+          "persist_ms": 4.348124999999982,
+          "total_ms": 74.20445799999993,
+          "rss_bytes": 351830016
+        },
+        {
+          "trial": 2,
+          "parser_initialization": "warm",
+          "read_parse_ms": 59.92270800000006,
+          "index_build_ms": 13.464500000000044,
+          "persist_ms": 5.432125000000042,
+          "total_ms": 78.81933300000014,
+          "rss_bytes": 362086400
+        },
+        {
+          "trial": 3,
+          "parser_initialization": "warm",
+          "read_parse_ms": 65.01804200000015,
+          "index_build_ms": 11.664332999999942,
+          "persist_ms": 4.633542000000034,
+          "total_ms": 81.31591700000013,
+          "rss_bytes": 365002752
+        },
+        {
+          "trial": 4,
+          "parser_initialization": "warm",
+          "read_parse_ms": 64.88858400000026,
+          "index_build_ms": 11.00433299999986,
+          "persist_ms": 4.63391700000011,
+          "total_ms": 80.52683400000024,
+          "rss_bytes": 363364352
+        }
+      ],
+      "warm_total": {
+        "count": 4,
+        "median_ms": 78.81933300000014,
+        "p95_ms": 81.31591700000013,
+        "max_ms": 81.31591700000013
+      }
+    }
+  ],
+  "exact_code": {
+    "positives": 291,
+    "passed": 281,
+    "exact_body_and_line_recall": 0.9656357388316151,
+    "returned": 578,
+    "independently_valid_returns": 576,
+    "negatives": 150,
+    "negatives_rejected": 150,
+    "latency": {
+      "count": 291,
+      "median_ms": 0.012959000000137166,
+      "p95_ms": 0.057042000000137705,
+      "max_ms": 0.981333000000177
+    },
+    "per_repo": [
+      {
+        "repo": "pallets/flask",
+        "queries": 100,
+        "passed": 98
+      },
+      {
+        "repo": "honojs/hono",
+        "queries": 100,
+        "passed": 92
+      },
+      {
+        "repo": "expressjs/express",
+        "queries": 91,
+        "passed": 91
+      }
+    ]
+  },
+  "resource": {
+    "max_rss_kib": 421936,
+    "final_rss_bytes": 428261376,
+    "cpu_user_microseconds": 16006375,
+    "cpu_system_microseconds": 388960
+  }
+}

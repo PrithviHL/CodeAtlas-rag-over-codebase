@@ -1,0 +1,18 @@
+{
+  "target_commit": "a39bfe75f898ce616b9b25b57551ef23ac53646c",
+  "node_tests": {
+    "passed": 53,
+    "failed": 0,
+    "runtime": "Node 24.22.1",
+    "llm_model": "disabled"
+  },
+  "engine_tests": {
+    "passed": 10,
+    "failed": 0,
+    "command": "PYTHONPATH=engine .runtime/engine-venv/bin/python -m pytest engine/tests -q",
+    "warning": "Qdrant in-memory payload indexes have no effect; tests use local test vectors, not a live model quality evaluation"
+  },
+  "application_typecheck": "passed",
+  "benchmark_typecheck": "passed",
+  "paid_inference_calls": 0
+}

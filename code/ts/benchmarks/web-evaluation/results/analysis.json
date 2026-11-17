@@ -1,0 +1,89 @@
+{
+  "integrity": "5,000 unique per-language query IDs; stored MRR independently recomputed from ranks",
+  "ast_lexical_relative_mrr_gain": 0.16234975165487775,
+  "ast_lexical_absolute_mrr_gain": 0.06376166666666694,
+  "ast_vs_window_bootstrap": {
+    "baseline": "window_bm25",
+    "candidate": "ast_bm25",
+    "delta_mrr": 0.06376166666666686,
+    "ci95": [
+      0.058593492063492056,
+      0.06880182539682554
+    ],
+    "resamples": 2000,
+    "seed": 20261116,
+    "rng": "Python random.Random (MT19937)",
+    "unit": "query; paired bootstrap; no multiplicity adjustment"
+  },
+  "exact_code_wilson95": [
+    0.9379092029643143,
+    0.9812288350983953
+  ],
+  "exact_code_n": 291,
+  "exact_code_passed": 281,
+  "indexed_lines_across_capped_snapshots": 40163,
+  "indexed_bytes_across_capped_snapshots": 1178547,
+  "indexed_files_across_capped_snapshots": 300,
+  "failed_exact_references": [
+    {
+      "repo": "pallets/flask",
+      "path": "src/flask/sessions.py",
+      "qualified_name": "SessionInterface.get_cookie_name",
+      "failure": "body-or-line-span-mismatch"
+    },
+    {
+      "repo": "pallets/flask",
+      "path": "src/flask/app.py",
+      "qualified_name": "Flask.get_send_file_max_age",
+      "failure": "body-or-line-span-mismatch"
+    },
+    {
+      "repo": "honojs/hono",
+      "path": "adapters/aws-lambda/src/handler.ts",
+      "qualified_name": "EventProcessor",
+      "failure": "no-exact-definition"
+    },
+    {
+      "repo": "honojs/hono",
+      "path": "adapters/aws-lambda/src/handler.ts",
+      "qualified_name": "EventProcessor.createRequest",
+      "failure": "no-exact-definition"
+    },
+    {
+      "repo": "honojs/hono",
+      "path": "adapters/aws-lambda/src/handler.ts",
+      "qualified_name": "EventProcessor.getHeaderValue",
+      "failure": "no-exact-definition"
+    },
+    {
+      "repo": "honojs/hono",
+      "path": "adapters/aws-lambda/src/handler.ts",
+      "qualified_name": "EventProcessor.setCookies",
+      "failure": "no-exact-definition"
+    },
+    {
+      "repo": "honojs/hono",
+      "path": "adapters/aws-lambda/src/handler.ts",
+      "qualified_name": "EventProcessor.createResult",
+      "failure": "no-exact-definition"
+    },
+    {
+      "repo": "honojs/hono",
+      "path": "adapters/deno/src/deno.d.ts",
+      "qualified_name": "writeFile",
+      "failure": "no-exact-definition"
+    },
+    {
+      "repo": "honojs/hono",
+      "path": "adapters/deno/src/deno.d.ts",
+      "qualified_name": "mkdir",
+      "failure": "no-exact-definition"
+    },
+    {
+      "repo": "honojs/hono",
+      "path": "adapters/deno/src/deno.d.ts",
+      "qualified_name": "lstatSync",
+      "failure": "no-exact-definition"
+    }
+  ]
+}

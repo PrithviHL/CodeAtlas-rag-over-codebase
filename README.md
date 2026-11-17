@@ -50,6 +50,12 @@ Optional local-model scripts (`run-model.sh`, `start-local.sh`) require separate
 
 The web app parses TypeScript/TSX, JavaScript/JSX, Python, Go, Rust, Java, Ruby, C/C++ (using the C++ grammar), shell, and CSS on the server. Declaration chunks retain symbols and exact source line ranges; imports and gaps are included. Large spans split into windows of at most 60 lines / 2,400 characters with overlap. Unsupported formats (including Vue/Svelte) and syntax errors use text windows. Parsers are bundled with the application: no parsing API, extra service, or API key is needed. For named function/class/method requests, source evidence returns the entire AST declaration from the retained commit snapshot, including nested methods and decorators, without the search chunk’s length limit or a four-result cap. Duplicate names return every matching declaration; specify a file or qualified name such as `Auth.authorize` to narrow them. Generic search also expands enclosing declarations when available; fallback text is labelled “Excerpt”. Only the explanation’s model context uses bounded previews. File/repository import limits still apply. Remove and re-import an existing index to enable complete declarations. This does not establish a retrieval-quality improvement.
 
+## Measured web evaluation
+
+A reproducible evaluation of the deployed web pipeline measured **96.6% exact-source recovery (281/291 parser-checked lookups)** across capped Flask, Hono and Express snapshots. On **5,000 CodeSearchNet-derived queries across five languages**, AST chunks + BM25 scored **0.4565 MRR@10**, up **16.2%** over fixed-line chunks in a lexical component ablation. The full web evidence path scored lower (**0.2596 MRR@10**), so this is not an end-to-end hybrid-search improvement. Local retrieval/evidence-selection p95 was **3.59 ms**, excluding HTTP and LLM generation.
+
+[Protocol, complete results, limitations, reproduction commands and resume wording](code/ts/benchmarks/web-evaluation/README.md). These web metrics are separate from the experimental semantic-engine pilot below.
+
 ## Local fleet engine
 
 The optional Python engine implements:

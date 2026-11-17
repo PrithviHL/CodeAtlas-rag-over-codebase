@@ -1,0 +1,131 @@
+{
+  "dataset": "mteb/CodeSearchNetRetrieval",
+  "dataset_revision": "68e8f0731a656fa4bd5b7c81936d95ad48a39bfe",
+  "files": [
+    {
+      "name": "python-corpus/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/mteb/CodeSearchNetRetrieval/resolve/68e8f0731a656fa4bd5b7c81936d95ad48a39bfe/python-corpus/test-00000-of-00001.parquet",
+      "sha256": "c3ffed7d172b9ef900d0c41a5081a42ff364f0e93ae156154bf314609709c962",
+      "bytes": 397446,
+      "records": 1000
+    },
+    {
+      "name": "python-queries/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/mteb/CodeSearchNetRetrieval/resolve/68e8f0731a656fa4bd5b7c81936d95ad48a39bfe/python-queries/test-00000-of-00001.parquet",
+      "sha256": "ddd3115b111f46cae60474225502e10093b8758a839e9ec23233231165f746a2",
+      "bytes": 232579,
+      "records": 1000
+    },
+    {
+      "name": "python-qrels/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/mteb/CodeSearchNetRetrieval/resolve/68e8f0731a656fa4bd5b7c81936d95ad48a39bfe/python-qrels/test-00000-of-00001.parquet",
+      "sha256": "53a35604523810cc7672633000abe8b190acd52501a838f9bd8884f2e2e62f06",
+      "bytes": 32945,
+      "records": 1000
+    },
+    {
+      "name": "javascript-corpus/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/mteb/CodeSearchNetRetrieval/resolve/68e8f0731a656fa4bd5b7c81936d95ad48a39bfe/javascript-corpus/test-00000-of-00001.parquet",
+      "sha256": "e7b4fa194fed98343f09e74f7741a64f2a2a546b2054f970668f0c551cedbf81",
+      "bytes": 571030,
+      "records": 1000
+    },
+    {
+      "name": "javascript-queries/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/mteb/CodeSearchNetRetrieval/resolve/68e8f0731a656fa4bd5b7c81936d95ad48a39bfe/javascript-queries/test-00000-of-00001.parquet",
+      "sha256": "200d9e79037f1c3d499bfd7cd90f277a62911fdd925b26cb032c746e050cbcd1",
+      "bytes": 112208,
+      "records": 1000
+    },
+    {
+      "name": "javascript-qrels/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/mteb/CodeSearchNetRetrieval/resolve/68e8f0731a656fa4bd5b7c81936d95ad48a39bfe/javascript-qrels/test-00000-of-00001.parquet",
+      "sha256": "3fcb89eac8f1371a2bb81197a0329b2147241781b3259c20c537bd4065fe2002",
+      "bytes": 39930,
+      "records": 1000
+    },
+    {
+      "name": "go-corpus/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/mteb/CodeSearchNetRetrieval/resolve/68e8f0731a656fa4bd5b7c81936d95ad48a39bfe/go-corpus/test-00000-of-00001.parquet",
+      "sha256": "965b6899308478ef9c1bed8f8e8854adb552fd2fd0d6ae64ec23a50e1c15465e",
+      "bytes": 305126,
+      "records": 1000
+    },
+    {
+      "name": "go-queries/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/mteb/CodeSearchNetRetrieval/resolve/68e8f0731a656fa4bd5b7c81936d95ad48a39bfe/go-queries/test-00000-of-00001.parquet",
+      "sha256": "bd1e0e79e22ad46c63708c7b2fd340b9a248e568167978e7bfbf6a9193a36c3e",
+      "bytes": 82017,
+      "records": 1000
+    },
+    {
+      "name": "go-qrels/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/mteb/CodeSearchNetRetrieval/resolve/68e8f0731a656fa4bd5b7c81936d95ad48a39bfe/go-qrels/test-00000-of-00001.parquet",
+      "sha256": "c566ba2fb40f8d3e0fd96a0aac99f9b28f053e51c5fe9cd67f093c264b460bb6",
+      "bytes": 30642,
+      "records": 1000
+    },
+    {
+      "name": "java-corpus/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/mteb/CodeSearchNetRetrieval/resolve/68e8f0731a656fa4bd5b7c81936d95ad48a39bfe/java-corpus/test-00000-of-00001.parquet",
+      "sha256": "80605a3621c7d5440a615ebf3ad3c01ad708a6848128cbd59cfeeabc4c7deeb3",
+      "bytes": 186606,
+      "records": 1000
+    },
+    {
+      "name": "java-queries/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/mteb/CodeSearchNetRetrieval/resolve/68e8f0731a656fa4bd5b7c81936d95ad48a39bfe/java-queries/test-00000-of-00001.parquet",
+      "sha256": "c6a2718b01e659e6e3475ceae7b89e67d4c0a4071eef254e9064c91981890e41",
+      "bytes": 255486,
+      "records": 1000
+    },
+    {
+      "name": "java-qrels/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/mteb/CodeSearchNetRetrieval/resolve/68e8f0731a656fa4bd5b7c81936d95ad48a39bfe/java-qrels/test-00000-of-00001.parquet",
+      "sha256": "becd997aa387a751bd709e4d69d942744c6064d0b37b9c69d281856800834d7a",
+      "bytes": 34953,
+      "records": 1000
+    },
+    {
+      "name": "ruby-corpus/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/mteb/CodeSearchNetRetrieval/resolve/68e8f0731a656fa4bd5b7c81936d95ad48a39bfe/ruby-corpus/test-00000-of-00001.parquet",
+      "sha256": "17250c2ae78c4d24fef13d4159f7a5324da5b828ed4425a8371a1835a2562d47",
+      "bytes": 300121,
+      "records": 1000
+    },
+    {
+      "name": "ruby-queries/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/mteb/CodeSearchNetRetrieval/resolve/68e8f0731a656fa4bd5b7c81936d95ad48a39bfe/ruby-queries/test-00000-of-00001.parquet",
+      "sha256": "edab98bd23d6aa7273a65256078bbe9a37d5b493b91a4481e77fb1dfd5e972cb",
+      "bytes": 169887,
+      "records": 1000
+    },
+    {
+      "name": "ruby-qrels/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/mteb/CodeSearchNetRetrieval/resolve/68e8f0731a656fa4bd5b7c81936d95ad48a39bfe/ruby-qrels/test-00000-of-00001.parquet",
+      "sha256": "63b5b0285039794bed550ab2f756a782dcdc7a1bfad13c04e40d5a09cfb07614",
+      "bytes": 43267,
+      "records": 1000
+    }
+  ],
+  "repositories": [
+    {
+      "repo": "pallets/flask",
+      "commit": "49943b5a94413a530761350f04e896f76e8d620e",
+      "clone_seconds": 0.8318734997883439,
+      "clone_conditions": "one shallow public GitHub clone; network and filesystem included"
+    },
+    {
+      "repo": "honojs/hono",
+      "commit": "676c8f80fcafc49e6e74c847a8f0d9c44cc7faee",
+      "clone_seconds": 1.0390982078388333,
+      "clone_conditions": "one shallow public GitHub clone; network and filesystem included"
+    },
+    {
+      "repo": "expressjs/express",
+      "commit": "43fca52d28a422c8be48fd489cbd4f2d6152bab6",
+      "clone_seconds": 0.6665481254458427,
+      "clone_conditions": "one shallow public GitHub clone; network and filesystem included"
+    }
+  ]
+}
