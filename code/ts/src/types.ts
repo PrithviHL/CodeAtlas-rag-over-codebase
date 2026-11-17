@@ -22,3 +22,15 @@ export type QueryResponse = {
 export function anchor(c: Chunk): string {
   return `${c.repo}/${c.path}:${c.startLine}-${c.endLine}`;
 }
+
+// Offsets address the retained immutable source, rather than duplicated bodies.
+export type SourceDefinition = {
+  path: string;
+  symbol: string;
+  qualifiedName: string;
+  kind: "function" | "method" | "class";
+  startLine: number;
+  endLine: number;
+  startIndex: number;
+  endIndex: number;
+};

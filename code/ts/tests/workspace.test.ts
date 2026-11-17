@@ -81,3 +81,40 @@ test("nearby AST declarations remain separate evidence with pinned exact lines",
     }
   } finally { await fs.rm(dir, { recursive: true, force: true }); }
 });
+
+test("HTTP evidence retains full source after reload while model context stays bounded", async () => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "atlas-full-source-"));
+  const originalFetch = globalThis.fetch, originalModel = process.env.LLM_MODEL;
+  try {
+    const source = path.join(dir, "source"); await fs.mkdir(source);
+    const body = `export class Worker {\n  run() {\n${Array.from({ length: 200 }, (_, i) => `    const item${i} = "${"x".repeat(30)}";`).join("\n")}\n    return true;\n  }\n}`;
+    await fs.writeFile(path.join(source, "worker.ts"), body);
+    const corpus = await readChunks(source, "owner/repo");
+    const workspace = new Workspace(path.join(dir, "data")); await workspace.load();
+    await workspace.save({ id: "full", name: "owner/repo", url: "https://github.com/owner/repo", commit: "pinned", ...corpus, createdAt: new Date().toISOString(), messages: [] });
+    const loaded = new Workspace(workspace.dir); await loaded.load();
+    assert.ok(!JSON.stringify(loaded.list()).includes("startIndex"));
+    assert.ok(!JSON.stringify(loaded.list()).includes("item199"));
+    process.env.LLM_MODEL = "test-model";
+    globalThis.fetch = async (_input, init) => {
+      const payload = JSON.parse(String(init?.body));
+      assert.ok(payload.messages.at(-1).content.length < 4000);
+      assert.match(payload.messages.at(-1).content, /partial preview/);
+      assert.ok(!payload.messages.at(-1).content.includes("item199"));
+      return new Response(JSON.stringify({ choices: [{ message: { content: "The class contains run [1]." } }] }));
+    };
+    const app = webApp(loaded);
+    const response = await app.request("http://localhost/api/repos/full/ask", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ question: "show Worker class" }) });
+    assert.equal(response.status, 200);
+    const message = await response.json();
+    assert.equal(message.citations.length, 1); assert.equal(message.citations[0].body, body);
+    assert.equal(message.citations[0].complete, true);
+    assert.equal(message.citations[0].url, "https://github.com/owner/repo/blob/pinned/worker.ts#L1-L205");
+    const again = new Workspace(workspace.dir); await again.load();
+    assert.equal(again.repos.get("full")?.messages[0].citations[0].body, body);
+  } finally {
+    globalThis.fetch = originalFetch;
+    if (originalModel === undefined) delete process.env.LLM_MODEL; else process.env.LLM_MODEL = originalModel;
+    await fs.rm(dir, { recursive: true, force: true });
+  }
+});

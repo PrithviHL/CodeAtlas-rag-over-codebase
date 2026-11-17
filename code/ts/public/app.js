@@ -38,7 +38,7 @@ function renderMessage(message) {
   if (message.citations.length) {
     article.append(node('div', `SOURCE EVIDENCE · ${message.citations.length}`, 'message-label'));
     message.citations.forEach((source, index) => {
-      const details = node('details', '', 'source'); const summary = node('summary', `[${index + 1}] ${source.path}  ·  L${source.startLine}–${source.endLine}`);
+      const details = node('details', '', 'source'); const summary = node('summary', `[${index + 1}] ${source.symbol ? source.symbol + " · " : ""}${source.path}  ·  L${source.startLine}–${source.endLine} · ${source.complete ? "Full " + source.kind : "Excerpt"}`);
       const pre = node('pre'); pre.append(node('code', source.body));
       const link = node('a', 'View on GitHub ↗'); link.href = source.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
       details.append(summary, pre, link); article.append(details);

@@ -1,9 +1,9 @@
 import { createRequire } from "node:module";
 import path from "node:path";
 import type { Language as Grammar, Node, Tree } from "@vscode/tree-sitter-wasm";
-import type { Chunk } from "./types.ts";
+import type { Chunk, SourceDefinition } from "./types.ts";
 
-export const CHUNKER_VERSION = "tree-sitter-v1";
+export const CHUNKER_VERSION = "tree-sitter-v2-full-definitions";
 const require = createRequire(import.meta.url);
 const { Parser, Language } = require("@vscode/tree-sitter-wasm") as typeof import("@vscode/tree-sitter-wasm");
 const wasmDir = path.dirname(require.resolve("@vscode/tree-sitter-wasm"));
@@ -54,9 +54,47 @@ function symbol(node: Node, fallback: string): string {
   return fallback;
 }
 
+const classNodes = new Set(["class_declaration", "class_definition", "class", "struct_item", "enum_item", "trait_item", "interface_declaration", "struct_specifier", "class_specifier"]);
+const functionNodes = new Set(["function_declaration", "generator_function_declaration", "function_definition", "function_item", "method_declaration", "method_definition", "method", "singleton_method"]);
+function definitionName(node: Node): string | undefined {
+  const name = node.childForFieldName("name");
+  if (name) return name.text;
+  const declarator = node.childForFieldName("declarator");
+  if (declarator) return definitionName(declarator) ?? (/identifier$/.test(declarator.type) ? declarator.text : undefined);
+  return undefined;
+}
+function collectDefinitions(root: Node, file: string): SourceDefinition[] {
+  const result: SourceDefinition[] = [];
+  function visit(node: Node, scope: string[]): void {
+    const callableVariable = node.type === "variable_declarator" && ["arrow_function", "function_expression", "generator_function"].includes(node.childForFieldName("value")?.type ?? "");
+    const isClass = classNodes.has(node.type);
+    const name = (isClass || functionNodes.has(node.type) || callableVariable) ? definitionName(node) : undefined;
+    let nextScope = scope;
+    if (name) {
+      let boundary = node;
+      if (callableVariable && node.parent && ["lexical_declaration", "variable_declaration"].includes(node.parent.type)) {
+        // Include const/let only when the statement contains this one binding.
+        if (node.parent.namedChildren.filter(c => c?.type === "variable_declarator").length === 1) boundary = node.parent;
+      }
+      while (boundary.parent && wrappers.has(boundary.parent.type)) boundary = boundary.parent;
+      const qualifiedName = [...scope, name].join(".");
+      result.push({ path: file, symbol: name, qualifiedName,
+        kind: isClass ? "class" : /method/.test(node.type) ? "method" : "function",
+        startLine: boundary.startPosition.row + 1,
+        endLine: boundary.endPosition.row + (boundary.endPosition.column > 0 ? 1 : 0),
+        startIndex: boundary.startIndex, endIndex: boundary.endIndex });
+      nextScope = [...scope, name];
+    }
+    for (const child of node.namedChildren) if (child) visit(child, nextScope);
+  }
+  visit(root, []);
+  return result;
+}
+
 // Parse source as data only. Each parser/tree is released; grammar WASMs are cached.
-export async function chunkSource(repo: string, file: string, source: string): Promise<Chunk[]> {
-  if (!source.trim()) return [];
+export async function indexSource(repo: string, file: string, source: string): Promise<{ chunks: Chunk[]; definitions: SourceDefinition[] }> {
+  if (!source.trim()) return { chunks: [], definitions: [] };
+  let definitions: SourceDefinition[] = [];
   const lines = source.split("\n");
   if (lines.at(-1) === "") lines.pop();
   const spans: { start: number; end: number; symbol: string }[] = [];
@@ -73,6 +111,7 @@ export async function chunkSource(repo: string, file: string, source: string): P
       if (!tree || tree.rootNode.hasError) strategy = "syntax-error-window";
       else {
         strategy = `tree-sitter-${language}`;
+        definitions = collectDefinitions(tree.rootNode, file);
         for (const node of tree.rootNode.namedChildren) {
           if (!node) continue;
           const found = declaration(node);
@@ -119,5 +158,9 @@ export async function chunkSource(repo: string, file: string, source: string): P
     cursor = span.end;
   }
   if (cursor < lines.length) emit(cursor, lines.length, file);
-  return chunks;
+  return { chunks, definitions };
+}
+
+export async function chunkSource(repo: string, file: string, source: string): Promise<Chunk[]> {
+  return (await indexSource(repo, file, source)).chunks;
 }
